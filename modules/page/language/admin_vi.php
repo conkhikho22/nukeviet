@@ -38,6 +38,7 @@ $lang_module['edit'] = 'Sửa bài viết';
 $lang_module['save'] = 'Lưu bài viết';
 $lang_module['errorsave'] = 'Lỗi hệ thống không cập nhật được nội dung, bạn hãy kiểm tra lại có thể các dữ liệu quá lớn';
 $lang_module['erroralias'] = 'Liên kết tĩnh này đã được sử dụng, mời nhập giá trị khác';
+$lang_module['errordemo'] = 'Domain không đúng định dạng';
 $lang_module['saveok'] = 'Cập nhật bài viết thành công';
 $lang_module['alias'] = 'Liên kết tĩnh';
 $lang_module['keywords'] = 'Từ khóa';
