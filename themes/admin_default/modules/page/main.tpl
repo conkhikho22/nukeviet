@@ -14,6 +14,7 @@
                 <th class="text-nowrap">{LANG.edit_time}</th>
                 <th class="text-nowrap">{LANG.status}</th>
                 <th class="text-center text-nowrap">{LANG.hitstotal}</th>
+                <th class="text-center text-nowrap">Domain demo</th>
                 <th class="text-center text-nowrap">{LANG.feature}</th>
             </tr>
         </thead>
@@ -40,6 +41,7 @@
                     </select>
                 </td>
                 <td class="text-center">{ROW.hitstotal}</td>
+                <td class="text-center">{ROW.demo}</td>
                 <td class="text-center text-nowrap">
                     <!-- BEGIN: copy_page -->
                     <a href={URL_COPY} title="{LANG.title_copy_page}" class="btn btn-success btn-sm"><i class="fa fa-copy"></i></a>
