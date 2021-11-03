@@ -38,6 +38,7 @@ $lang_module['edit'] = 'Modifier l\'article';
 $lang_module['save'] = 'Sauver';
 $lang_module['errorsave'] = 'Le système ne peut pas mettre à jour le contenu, veuillez vérifier que les données sont trop volumineuses';
 $lang_module['erroralias'] = 'Cet alias est déjà utilisé, veuillez entrer une autre valeur';
+$lang_module['errordemo'] = 'Le domaine n\'est pas au bon format';
 $lang_module['saveok'] = 'Mise à jour réussie';
 $lang_module['alias'] = 'Alias';
 $lang_module['keywords'] = 'Mot clé';
