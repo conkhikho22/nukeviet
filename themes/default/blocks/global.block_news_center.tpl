@@ -6,8 +6,8 @@
                 <div class="owl-carousel owl-theme">
                     <!-- BEGIN: news_loop -->
                     <div>
-                        <div class="margin-bottom text-center backgroup-img"><a href="{main.link}" title="{main.link}" {main.target_blank}><img src="{main.imgsource}" alt="{main.title}" width="{main.width}" class="img-thumbnail img-private"/></a></div>
-                        <h2 class="margin-bottom-sm"><a href="{main.link}" <!-- BEGIN: tooltip -->data-placement="{TOOLTIP_POSITION}" data-content="{main.hometext_clean}" data-img="{main.imgsource}" data-rel="tooltip"<!-- END: tooltip --> title="{main.title}" {main.target_blank}>{main.titleclean60}</a></h2>
+                        <div class="margin-bottom text-center backgroup-img"><a href="{main.link}" title="{main.link}" {main.target_blank}><img src="{main.imgsource}" alt="{main.title}" style="width: {main.width}px; margin: auto;" class="img-thumbnail img-private"/></a></div>
+                        <h2 class="margin-bottom-sm text-center"><a href="{main.link}" <!-- BEGIN: tooltip -->data-placement="{TOOLTIP_POSITION}" data-content="{main.hometext_clean}" data-img="{main.imgsource}" data-rel="tooltip"<!-- END: tooltip --> title="{main.title}" {main.target_blank}>{main.titleclean60}</a></h2>
                         {main.hometext}
                     </div>
                     <!-- END: news_loop -->
