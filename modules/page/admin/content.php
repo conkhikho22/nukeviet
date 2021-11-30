@@ -15,7 +15,7 @@ if (!defined('NV_IS_FILE_ADMIN')) {
 
 $id = $nv_Request->get_int('id', 'post,get', 0);
 $copy = $nv_Request->get_int('copy', 'get,post', 0);
-
+$domain_pattern = '/((http|https)\:\/\/)?[a-zA-Z0-9\.\/\?\:@\-_=#]+\.([a-zA-Z0-9\&\.\/\?\:@\-_=#])*/';
 if ($id) {
     $sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . ' WHERE id=' . $id;
     $row = $db->query($sql)->fetch();
@@ -74,7 +74,7 @@ if ($nv_Request->get_int('save', 'post') == '1') {
     }
 
     $row['hot_post'] = $nv_Request->get_int('hot_post', 'post', 0);
-
+    $row['demo'] = $nv_Request->get_title('demo', 'post', 0);
     $_groups_post = $nv_Request->get_array('activecomm', 'post', []);
     $row['activecomm'] = !empty($_groups_post) ? implode(',', nv_groups_post(array_intersect($_groups_post, array_keys($groups_list)))) : '';
 
@@ -89,6 +89,8 @@ if ($nv_Request->get_int('save', 'post') == '1') {
         $error = $lang_module['empty_title'];
     } elseif ($is_exists) {
         $error = $lang_module['erroralias'];
+    } elseif (!preg_match($domain_pattern, $row['demo'])) {
+        $error = $lang_module['errordemo'];;
     } elseif (trim($row['bodytext']) == '') {
         $error = $lang_module['empty_bodytext'];
     } else {
@@ -109,7 +111,7 @@ if ($nv_Request->get_int('save', 'post') == '1') {
                 imageposition = :imageposition, description = :description,
                 bodytext = :bodytext, keywords = :keywords, socialbutton = :socialbutton,
                 activecomm = :activecomm, layout_func = :layout_func,
-                edit_time = ' . NV_CURRENTTIME . ', hot_post = :hot_post
+                edit_time = ' . NV_CURRENTTIME . ', hot_post = :hot_post, demo = :demo
             WHERE id =' . $id;
         } else {
             if ($page_config['news_first']) {
@@ -121,11 +123,11 @@ if ($nv_Request->get_int('save', 'post') == '1') {
 
             $_sql = 'INSERT INTO ' . NV_PREFIXLANG . '_' . $module_data . ' (
                 title, alias, image, imagealt, imageposition, description, bodytext, keywords,
-                socialbutton, activecomm, layout_func, weight,admin_id, add_time, edit_time, status,hot_post
+                socialbutton, activecomm, layout_func, weight,admin_id, add_time, edit_time, status,hot_post, demo
             ) VALUES (
                 :title, :alias, :image, :imagealt, :imageposition, :description, :bodytext,
                 :keywords, :socialbutton, :activecomm, :layout_func, ' . $weight . ',
-                ' . $admin_info['admin_id'] . ', ' . NV_CURRENTTIME . ', ' . NV_CURRENTTIME . ', 1, :hot_post
+                ' . $admin_info['admin_id'] . ', ' . NV_CURRENTTIME . ', ' . NV_CURRENTTIME . ', 1, :hot_post, :demo
             )';
         }
 
@@ -143,6 +145,7 @@ if ($nv_Request->get_int('save', 'post') == '1') {
             $sth->bindParam(':activecomm', $row['activecomm'], PDO::PARAM_INT);
             $sth->bindParam(':layout_func', $row['layout_func'], PDO::PARAM_STR);
             $sth->bindParam(':hot_post', $row['hot_post'], PDO::PARAM_INT);
+            $sth->bindParam(':demo', $row['demo'], PDO::PARAM_INT);
             $sth->execute();
 
             if ($sth->rowCount()) {

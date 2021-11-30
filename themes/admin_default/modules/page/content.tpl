@@ -46,6 +46,10 @@
                             <td >							<textarea class="form-control" id="description" name="description" cols="100" rows="5">{DATA.description}</textarea> {GLANG.length_characters}: <span id="descriptionlength" class="red">0</span>. {GLANG.description_suggest_max} </td>
                         </tr>
                         <tr>
+                            <td class="text-right">Địa chỉ demo</td>
+                            <td><input class="w300 for  m-control" type="text" name="demo" id="demo" value="{DATA.demo}"/></td>
+                        </tr>
+                        <tr>
                             <td colspan="2" class="strong" > {LANG.bodytext} <sup class="required">(*)</sup>
                             <div>
                                 {BODYTEXT}
@@ -116,6 +120,19 @@
         $("#descriptionlength").html($(this).val().length);
     });
 </script>
+
+<script type="text/javascript">
+    $("#demo").change(function(){
+        var domain = new RegExp(/((http|https)\:\/\/)?[a-zA-Z0-9\.\/\?\:@\-_=#]+\.([a-zA-Z0-9\&\.\/\?\:@\-_=#])*/);
+        var txtdomain = $("#demo").val();
+        if (txtdomain != ""){
+            if (!domain.test(txtdomain)) {
+                alert("Không phải là domain!")
+            }
+        }
+    });
+</script>
+
 <!-- BEGIN: get_alias -->
 <script type="text/javascript">
     $(document).ready(function() {

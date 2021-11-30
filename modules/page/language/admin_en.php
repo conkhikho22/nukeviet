@@ -38,6 +38,7 @@ $lang_module['edit'] = 'Edit article';
 $lang_module['save'] = 'Save article';
 $lang_module['errorsave'] = 'System can\'t update content, please check that the data is too large';
 $lang_module['erroralias'] = 'This alias is already used, please enter another value';
+$lang_module['errordemo'] = 'Domain is not in the right format';
 $lang_module['saveok'] = 'Update successfully';
 $lang_module['alias'] = 'Static Link';
 $lang_module['keywords'] = 'keywords';
