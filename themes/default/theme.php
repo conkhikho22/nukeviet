@@ -149,6 +149,14 @@ function nv_site_theme($contents, $full = true)
             'rel' => 'stylesheet',
             'href' => NV_STATIC_URL . 'themes/' . $global_config['module_theme'] . '/css/style.responsive.css'
         ];
+        $html_links[] = [
+            'rel' => 'stylesheet',
+            'href' => NV_STATIC_URL . 'themes/' . $global_config['module_theme'] . '/css/owl.carousel.min.css'
+        ];
+        $html_links[] = [
+            'rel' => 'stylesheet',
+            'href' => NV_STATIC_URL . 'themes/' . $global_config['module_theme'] . '/css/owl.theme.default.min.css'
+        ];
     } else {
         $html_links[] = [
             'rel' => 'stylesheet',
@@ -161,6 +169,14 @@ function nv_site_theme($contents, $full = true)
         $html_links[] = [
             'rel' => 'stylesheet',
             'href' => NV_STATIC_URL . 'themes/' . $global_config['module_theme'] . '/css/style.non-responsive.css'
+        ];
+        $html_links[] = [
+            'rel' => 'stylesheet',
+            'href' => NV_STATIC_URL . 'themes/' . $global_config['module_theme'] . '/css/owl.carousel.min.css'
+        ];
+        $html_links[] = [
+            'rel' => 'stylesheet',
+            'href' => NV_STATIC_URL . 'themes/' . $global_config['module_theme'] . '/css/owl.theme.default.min.css'
         ];
     }
     if (defined('NV_IS_ADMIN') and $full) {
@@ -184,7 +200,7 @@ function nv_site_theme($contents, $full = true)
 
             if (!file_exists(NV_ROOTDIR . '/' . NV_ASSETS_DIR . '/css/' . $customFileName . '.css')) {
                 $replace = [
-                    '[body]' => 'body',
+                    '[body]' => 'body', 
                     '[a_link]' => 'a, a:link, a:active, a:visited',
                     '[a_link_hover]' => 'a:hover',
                     '[content]' => '.wraper',
