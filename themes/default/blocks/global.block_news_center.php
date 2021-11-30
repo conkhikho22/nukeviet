@@ -288,6 +288,7 @@ if (!nv_function_exists('nv_block_news_center')) {
                         $row['hometext_clean'] = nv_clean60($row['hometext_clean'], $block_config['tooltip_length'], true);
                     }
                     $row['titleclean60'] = nv_clean60($row['title'], $block_config['length_othertitle']);
+                    $row['publtime'] = date('d/m/Y h:m', $row['publtime']);
                     $xtpl->assign('main', $row);
                     if ($block_config['showtooltip']) {
                         $xtpl->assign('TOOLTIP_POSITION', $block_config['tooltip_position']);
